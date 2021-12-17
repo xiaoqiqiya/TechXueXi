@@ -2,6 +2,7 @@ import math
 import os
 import sys
 import time
+import random
 from sys import argv
 
 from pdlearn import boot
@@ -80,7 +81,9 @@ def start_learn(uid, name):
         user_fullname = user.get_fullname(uid)
         name = user_fullname.split('_', 1)[1]
         user.update_last_user(uid)
-    output = name + " 登录正常，开始学习...\n"
+    i = random.randint(0, 60 * 10)
+    time.sleep(i)
+    output = name + " 登录正常，开始学习...延迟"+str(i)+"秒后进行学习！\n"
 
     article_index = user.get_article_index(uid)
     video_index = 1  # user.get_video_index(uid)
