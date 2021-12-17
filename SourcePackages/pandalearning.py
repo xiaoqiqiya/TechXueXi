@@ -82,7 +82,6 @@ def start_learn(uid, name):
         name = user_fullname.split('_', 1)[1]
         user.update_last_user(uid)
     i = random.randint(0, 60 * 10)
-    time.sleep(i)
     output = name + " 登录正常，开始学习...延迟"+str(i)+"秒后进行学习！\n"
 
     article_index = user.get_article_index(uid)
@@ -90,6 +89,7 @@ def start_learn(uid, name):
 
     total, scores = show_score(cookies)
     gl.pushprint(output, chat_id=uid)
+    time.sleep(i)
     if TechXueXi_mode in ["1", "3"]:
 
         article_thread = threads.MyThread(
